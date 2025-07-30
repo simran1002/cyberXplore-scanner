@@ -6,11 +6,9 @@ import { scanWorker } from '../services/worker';
 
 const router = express.Router();
 
-// Mount route modules
 router.use('/upload', uploadRoutes);
 router.use('/files', filesRoutes);
 
-// Health check endpoint
 router.get('/health', (req, res) => {
   res.json({
     success: true,
@@ -20,7 +18,6 @@ router.get('/health', (req, res) => {
   });
 });
 
-// System status endpoint
 router.get('/status', (req, res) => {
   const queueStatus = scanQueue.getQueueStatus();
   const workerStatus = scanWorker.getStatus();
@@ -39,7 +36,6 @@ router.get('/status', (req, res) => {
   });
 });
 
-// API documentation endpoint
 router.get('/docs', (req, res) => {
   res.json({
     success: true,

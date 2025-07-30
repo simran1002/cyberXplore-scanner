@@ -53,7 +53,6 @@ const FileSchema: Schema = new Schema({
   timestamps: true
 });
 
-// Index for better query performance
 FileSchema.index({ status: 1, uploadedAt: -1 });
 FileSchema.index({ result: 1 });
 FileSchema.index({ hash: 1 });

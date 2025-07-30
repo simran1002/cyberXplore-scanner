@@ -6,7 +6,6 @@ import { UploadResponse } from '../types';
 
 const router = express.Router();
 
-// POST /upload - File Upload API
 router.post('/', upload.single('file'), async (req, res) => {
   try {
     if (!req.file) {
@@ -16,7 +15,6 @@ router.post('/', upload.single('file'), async (req, res) => {
       } as UploadResponse);
     }
 
-    // Create file document in database
     const fileDoc = new File({
       filename: req.file.filename,
       originalName: req.file.originalname,
@@ -29,7 +27,6 @@ router.post('/', upload.single('file'), async (req, res) => {
 
     const savedFile = await fileDoc.save();
 
-    // Enqueue scanning job
     scanQueue.enqueue({
       fileId: savedFile._id!.toString(),
       filename: savedFile.filename,
@@ -65,7 +62,6 @@ router.post('/', upload.single('file'), async (req, res) => {
   }
 });
 
-// Error handling middleware for multer
 router.use(handleUploadError);
 
 export default router;

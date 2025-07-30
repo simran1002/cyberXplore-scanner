@@ -26,7 +26,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [connected, setConnected] = useState(false);
 
-  // Fetch files from API
   const fetchFiles = useCallback(async () => {
     try {
       setLoading(true);
@@ -42,7 +41,6 @@ function App() {
     }
   }, []);
 
-  // Fetch stats from API
   const fetchStats = useCallback(async () => {
     try {
       const response = await apiService.getStats();
@@ -54,17 +52,14 @@ function App() {
     }
   }, []);
 
-  // Handle file upload success
   const handleUploadSuccess = useCallback((response: UploadResponse) => {
     if (response.file) {
       setFiles(prevFiles => [response.file!, ...prevFiles]);
-      fetchStats(); // Refresh stats
+      fetchStats(); 
     }
-    // Switch to dashboard to see the uploaded file
     setActiveTab('dashboard');
   }, [fetchStats]);
 
-  // Setup WebSocket connection
   useEffect(() => {
     const socket = socketService.connect();
     
@@ -79,16 +74,14 @@ function App() {
       toast.error('Disconnected from real-time updates');
     });
 
-    // Listen for file updates
     socketService.onFilesUpdate((updatedFiles) => {
       setFiles(updatedFiles);
       fetchStats();
     });
 
-    // Listen for scan events
     socketService.onScanStarted((data) => {
       toast.loading(`Scanning ${data.filename}...`, { id: data.fileId });
-      fetchFiles(); // Refresh to show updated status
+      fetchFiles(); 
     });
 
     socketService.onScanCompleted((data) => {
@@ -105,8 +98,8 @@ function App() {
         },
       });
       
-      fetchFiles(); // Refresh files
-      fetchStats(); // Refresh stats
+      fetchFiles(); 
+      fetchStats();
     });
 
     return () => {
@@ -114,13 +107,11 @@ function App() {
     };
   }, [fetchFiles, fetchStats]);
 
-  // Initial data fetch
   useEffect(() => {
     fetchFiles();
     fetchStats();
   }, [fetchFiles, fetchStats]);
 
-  // Auto-refresh every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       fetchFiles();

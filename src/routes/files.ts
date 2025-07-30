@@ -4,7 +4,6 @@ import { FilesResponse } from '../types';
 
 const router = express.Router();
 
-// GET /files - Fetch all files with optional filtering and pagination
 router.get('/', async (req, res) => {
   try {
     const page = parseInt(req.query.page as string) || 1;
@@ -14,7 +13,6 @@ router.get('/', async (req, res) => {
     const sortBy = req.query.sortBy as string || 'uploadedAt';
     const sortOrder = req.query.sortOrder as string || 'desc';
 
-    // Build filter object
     const filter: any = {};
     if (status && ['pending', 'scanning', 'scanned'].includes(status)) {
       filter.status = status;
@@ -23,14 +21,11 @@ router.get('/', async (req, res) => {
       filter.result = result;
     }
 
-    // Build sort object
     const sort: any = {};
     sort[sortBy] = sortOrder === 'asc' ? 1 : -1;
 
-    // Calculate skip value for pagination
     const skip = (page - 1) * limit;
 
-    // Execute query with pagination
     const [files, total] = await Promise.all([
       File.find(filter)
         .sort(sort)
@@ -60,7 +55,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET /files/:id - Get specific file details
 router.get('/:id', async (req, res) => {
   try {
     const file = await File.findById(req.params.id);
@@ -86,7 +80,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// GET /files/stats/summary - Get file statistics
 router.get('/stats/summary', async (req, res) => {
   try {
     const [

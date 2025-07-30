@@ -13,17 +13,15 @@ class NotificationService {
     
     console.log('🚨 SECURITY ALERT:', message);
 
-    // Send to Slack if webhook URL is configured
     if (this.slackWebhookUrl) {
       try {
         await this.sendSlackAlert(message, file, threats);
-        console.log('✅ Slack alert sent successfully');
+        console.log(' Slack alert sent successfully');
       } catch (error) {
-        console.error('❌ Failed to send Slack alert:', error);
+        console.error(' Failed to send Slack alert:', error);
       }
     }
 
-    // Could add other notification channels here (email, Discord, etc.)
   }
 
   private formatAlertMessage(file: FileDocument, threats: string[]): string {
@@ -39,7 +37,7 @@ class NotificationService {
     if (!this.slackWebhookUrl) return;
 
     const payload = {
-      text: "🚨 CyberXplore Security Alert",
+      text: " CyberXplore Security Alert",
       attachments: [
         {
           color: "danger",
@@ -92,7 +90,6 @@ class NotificationService {
     return Math.round(bytes / Math.pow(1024, i) * 100) / 100 + ' ' + sizes[i];
   }
 
-  // Test notification method
   async testNotification(): Promise<void> {
     const testFile: FileDocument = {
       filename: 'test-malware.pdf',

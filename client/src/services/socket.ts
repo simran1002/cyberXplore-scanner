@@ -53,17 +53,14 @@ class SocketService {
     });
   }
 
-  // Subscribe to file updates
   onFilesUpdate(callback: (files: FileDocument[]) => void): void {
     this.socket?.on('files-update', callback);
   }
 
-  // Subscribe to scan started events
   onScanStarted(callback: (data: { fileId: string; filename: string }) => void): void {
     this.socket?.on('scan-started', callback);
   }
 
-  // Subscribe to scan completed events
   onScanCompleted(callback: (data: { 
     fileId: string; 
     result: 'clean' | 'infected'; 
@@ -72,12 +69,10 @@ class SocketService {
     this.socket?.on('scan-completed', callback);
   }
 
-  // Request initial file list
   requestFiles(): void {
     this.socket?.emit('get-files');
   }
 
-  // Remove event listeners
   off(event: string, callback?: (...args: any[]) => void): void {
     if (callback) {
       this.socket?.off(event, callback);
@@ -86,7 +81,7 @@ class SocketService {
     }
   }
 
-  // Disconnect
+ 
   disconnect(): void {
     if (this.socket) {
       console.log('🔌 Disconnecting from WebSocket server...');
@@ -95,17 +90,15 @@ class SocketService {
     }
   }
 
-  // Get connection status
+  
   isConnected(): boolean {
     return this.socket?.connected || false;
   }
 
-  // Get socket instance
   getSocket(): Socket | null {
     return this.socket;
   }
 }
 
-// Export singleton instance
 export const socketService = new SocketService();
 export default socketService;

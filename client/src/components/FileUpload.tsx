@@ -19,7 +19,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onUploadSuccess, onUploadError 
 
     const file = acceptedFiles[0];
     
-    // Validate file size (5MB limit)
+    
     if (file.size > 5 * 1024 * 1024) {
       const error = 'File size exceeds 5MB limit';
       toast.error(error);
@@ -31,7 +31,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onUploadSuccess, onUploadError 
     setUploadProgress(0);
 
     try {
-      // Simulate upload progress
+      
       const progressInterval = setInterval(() => {
         setUploadProgress(prev => {
           if (prev >= 90) {

@@ -11,7 +11,7 @@ const api = axios.create({
   },
 });
 
-// Request interceptor for logging
+
 api.interceptors.request.use(
   (config) => {
     console.log(`🌐 API Request: ${config.method?.toUpperCase()} ${config.url}`);
@@ -23,7 +23,7 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor for error handling
+
 api.interceptors.response.use(
   (response) => {
     console.log(`✅ API Response: ${response.status} ${response.config.url}`);
@@ -36,7 +36,7 @@ api.interceptors.response.use(
 );
 
 export const apiService = {
-  // Upload file
+ 
   uploadFile: async (file: File): Promise<UploadResponse> => {
     const formData = new FormData();
     formData.append('file', file);
@@ -50,7 +50,6 @@ export const apiService = {
     return response.data;
   },
 
-  // Get files with optional filters and pagination
   getFiles: async (params?: {
     page?: number;
     limit?: number;
@@ -63,25 +62,24 @@ export const apiService = {
     return response.data;
   },
 
-  // Get specific file by ID
   getFile: async (id: string): Promise<{ success: boolean; file: any }> => {
     const response = await api.get(`/files/${id}`);
     return response.data;
   },
 
-  // Get file statistics
+  
   getStats: async (): Promise<StatsResponse> => {
     const response = await api.get('/files/stats/summary');
     return response.data;
   },
 
-  // Health check
+  
   healthCheck: async (): Promise<{ success: boolean; message: string }> => {
     const response = await api.get('/health');
     return response.data;
   },
 
-  // Get system status
+
   getStatus: async (): Promise<any> => {
     const response = await api.get('/status');
     return response.data;

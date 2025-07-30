@@ -28,12 +28,12 @@ const FileList: React.FC<FileListProps> = ({ files, loading = false, onRefresh }
   useEffect(() => {
     let filtered = files;
 
-    // Filter by status
+    
     if (statusFilter !== 'all') {
       filtered = filtered.filter(file => file.status === statusFilter);
     }
 
-    // Filter by result
+  
     if (resultFilter !== 'all') {
       filtered = filtered.filter(file => file.result === resultFilter);
     }

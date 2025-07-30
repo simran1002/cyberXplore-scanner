@@ -39,28 +39,24 @@ class MalwareScanner {
     console.log(`🔍 Starting scan for file: ${fileId}`);
     
     try {
-      // Update status to scanning
       await File.findByIdAndUpdate(fileId, { 
         status: 'scanning' 
       });
 
-      // Simulate scanning delay (2-5 seconds)
-      const scanDuration = Math.random() * 3000 + 2000; // 2-5 seconds
+      const scanDuration = Math.random() * 3000 + 2000; 
       await new Promise(resolve => setTimeout(resolve, scanDuration));
 
-      // Read file content for text-based files
       let fileContent = '';
       try {
         const stats = await fs.stat(filePath);
-        if (stats.size < 1024 * 1024) { // Only read files smaller than 1MB
+        if (stats.size < 1024 * 1024) { 
           const buffer = await fs.readFile(filePath);
-          fileContent = buffer.toString('utf8', 0, Math.min(buffer.length, 10000)); // First 10KB
+          fileContent = buffer.toString('utf8', 0, Math.min(buffer.length, 10000)); 
         }
       } catch (error) {
         console.log('Could not read file content for scanning:', error);
       }
 
-      // Check for dangerous keywords
       const threats: string[] = [];
       const contentLower = fileContent.toLowerCase();
       
@@ -70,7 +66,6 @@ class MalwareScanner {
         }
       }
 
-      // Additional checks based on filename
       const filename = path.basename(filePath).toLowerCase();
       const suspiciousFilenames = ['virus', 'malware', 'trojan', 'hack', 'crack', 'keygen'];
       
@@ -80,11 +75,9 @@ class MalwareScanner {
         }
       }
 
-      // Determine result
       const result: 'clean' | 'infected' = threats.length > 0 ? 'infected' : 'clean';
       const scannedAt = new Date();
 
-      // Update database
       const updatedFile = await File.findByIdAndUpdate(
         fileId,
         {
@@ -95,13 +88,12 @@ class MalwareScanner {
         { new: true }
       );
 
-      console.log(`✅ Scan completed for ${fileId}: ${result.toUpperCase()}`);
+      console.log(`Scan completed for ${fileId}: ${result.toUpperCase()}`);
       
       if (threats.length > 0) {
-        console.log(`⚠️  Threats detected: ${threats.join(', ')}`);
+        console.log(`  Threats detected: ${threats.join(', ')}`);
       }
 
-      // Send notification if infected
       if (result === 'infected' && updatedFile) {
         await notificationService.sendAlert(updatedFile, threats);
       }
@@ -114,12 +106,11 @@ class MalwareScanner {
       };
 
     } catch (error) {
-      console.error(`❌ Error scanning file ${fileId}:`, error);
+      console.error(` Error scanning file ${fileId}:`, error);
       
-      // Update status to scanned with error
       await File.findByIdAndUpdate(fileId, {
         status: 'scanned',
-        result: 'clean', // Default to clean on error
+        result: 'clean', 
         scannedAt: new Date()
       });
 

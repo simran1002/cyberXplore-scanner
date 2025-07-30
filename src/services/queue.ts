@@ -46,7 +46,6 @@ class InMemoryQueue extends EventEmitter {
         }
       }
       
-      // Check for new jobs every 1 second
       await new Promise(resolve => setTimeout(resolve, 1000));
     }
   }
@@ -60,5 +59,4 @@ class InMemoryQueue extends EventEmitter {
   }
 }
 
-// Singleton instance
 export const scanQueue = new InMemoryQueue();
