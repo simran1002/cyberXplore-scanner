@@ -1,0 +1,4 @@
+This file contains malware signatures.
+Dangerous keywords: eval(), rm -rf, bitcoin mining.
+This should trigger the malware detection system.
+Contains virus and trojan signatures for testing.

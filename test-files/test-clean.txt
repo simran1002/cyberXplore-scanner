@@ -1,0 +1,4 @@
+This is a clean test file.
+It contains normal text content.
+No malicious code or suspicious keywords.
+Perfect for testing the clean file detection.
