@@ -43,10 +43,6 @@ A comprehensive full-stack application for secure file upload and malware scanni
 3. Filter files by status (pending, scanning, scanned) or result (clean, infected)
 4. Click "View" to see detailed file information
 
-### Statistics
-1. Visit the **Statistics** tab for comprehensive metrics
-2. View threat detection rates
-3. Monitor scan activity and queue status
 
 ![alt text](<Screenshot (1200).png>)
 ![alt text](<Screenshot (1201).png>)
