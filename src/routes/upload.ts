@@ -15,20 +15,22 @@ router.post('/', upload.single('file'), async (req, res) => {
       } as UploadResponse);
     }
 
-    const fileDoc = new File({
+    // Ensure result and status are explicitly set to 'pending'
+    const newFile = new File({
       filename: req.file.filename,
       originalName: req.file.originalname,
       path: req.file.path,
       size: req.file.size,
       mimetype: req.file.mimetype,
       status: 'pending',
+      result: 'pending',  // Explicitly set
       uploadedAt: new Date()
     });
 
-    const savedFile = await fileDoc.save();
+    const savedFile = await newFile.save();
 
     scanQueue.enqueue({
-      fileId: savedFile._id!.toString(),
+      fileId: savedFile._id.toString(),
       filename: savedFile.filename,
       path: savedFile.path,
       createdAt: new Date()
@@ -46,10 +48,10 @@ router.post('/', upload.single('file'), async (req, res) => {
         path: savedFile.path,
         size: savedFile.size,
         mimetype: savedFile.mimetype,
-        status: savedFile.status,
-        result: savedFile.result || null,
+        status: savedFile.status || 'pending',  // Fallback to prevent null
+        result: savedFile.result || 'pending',  // Fallback to prevent null
         uploadedAt: savedFile.uploadedAt,
-        scannedAt: savedFile.scannedAt || null
+        scannedAt: savedFile.scannedAt || undefined // Use undefined instead of null
       }
     } as UploadResponse);
 
@@ -57,11 +59,9 @@ router.post('/', upload.single('file'), async (req, res) => {
     console.error('Upload error:', error);
     res.status(500).json({
       success: false,
-      error: 'Internal server error during file upload'
+      error: error instanceof Error ? error.message : 'Internal server error during file upload'
     } as UploadResponse);
   }
 });
-
-router.use(handleUploadError);
 
 export default router;

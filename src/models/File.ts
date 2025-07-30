@@ -30,20 +30,22 @@ const FileSchema: Schema = new Schema({
   status: {
     type: String,
     enum: ['pending', 'scanning', 'scanned'],
-    default: 'pending'
+    default: 'pending',
+    required: true
   },
   result: {
     type: String,
-    enum: ['clean', 'infected'],
-    required: false
+    enum: ['clean', 'infected', 'pending'],
+    default: 'pending',
+    required: true
   },
   uploadedAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    required: true
   },
   scannedAt: {
-    type: Date,
-    required: false
+    type: Date
   },
   hash: {
     type: String,

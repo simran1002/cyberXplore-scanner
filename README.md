@@ -47,3 +47,7 @@ A comprehensive full-stack application for secure file upload and malware scanni
 1. Visit the **Statistics** tab for comprehensive metrics
 2. View threat detection rates
 3. Monitor scan activity and queue status
+
+![alt text](<Screenshot (1200).png>)
+![alt text](<Screenshot (1201).png>)
+![alt text](<Screenshot (1202).png>)

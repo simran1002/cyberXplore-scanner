@@ -12,14 +12,14 @@ class InMemoryQueue extends EventEmitter {
 
   enqueue(job: ScanJob): void {
     this.queue.push(job);
-    console.log(`📥 Job enqueued: ${job.filename} (Queue size: ${this.queue.length})`);
+    console.log(` Job enqueued: ${job.filename} (Queue size: ${this.queue.length})`);
     this.emit('job-added', job);
   }
 
   dequeue(): ScanJob | undefined {
     const job = this.queue.shift();
     if (job) {
-      console.log(`📤 Job dequeued: ${job.filename} (Queue size: ${this.queue.length})`);
+      console.log(` Job dequeued: ${job.filename} (Queue size: ${this.queue.length})`);
     }
     return job;
   }
@@ -36,7 +36,7 @@ class InMemoryQueue extends EventEmitter {
     if (this.processing) return;
     
     this.processing = true;
-    console.log('🔄 Queue processor started');
+    console.log(' Queue processor started');
 
     while (true) {
       if (!this.isEmpty()) {

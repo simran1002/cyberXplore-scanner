@@ -11,7 +11,7 @@ class NotificationService {
   async sendAlert(file: FileDocument, threats: string[]): Promise<void> {
     const message = this.formatAlertMessage(file, threats);
     
-    console.log('🚨 SECURITY ALERT:', message);
+    console.log(' SECURITY ALERT:', message);
 
     if (this.slackWebhookUrl) {
       try {
@@ -25,7 +25,7 @@ class NotificationService {
   }
 
   private formatAlertMessage(file: FileDocument, threats: string[]): string {
-    return `🚨 MALWARE DETECTED!\n` +
+    return ` MALWARE DETECTED!\n` +
            `File: ${file.originalName}\n` +
            `Size: ${this.formatFileSize(file.size)}\n` +
            `Uploaded: ${file.uploadedAt.toISOString()}\n` +

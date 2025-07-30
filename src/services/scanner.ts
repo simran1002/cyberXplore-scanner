@@ -36,7 +36,7 @@ class MalwareScanner {
   ];
 
   async scanFile(fileId: string, filePath: string): Promise<ScanResult> {
-    console.log(`🔍 Starting scan for file: ${fileId}`);
+    console.log(` Starting scan for file: ${fileId}`);
     
     try {
       await File.findByIdAndUpdate(fileId, { 

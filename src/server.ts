@@ -110,9 +110,9 @@ app.use('*', (req, res) => {
 });
 
 process.on('SIGTERM', async () => {
-  console.log('🛑 SIGTERM received, shutting down gracefully');
+  console.log(' SIGTERM received, shutting down gracefully');
   server.close(() => {
-    console.log('✅ Server closed');
+    console.log(' Server closed');
     process.exit(0);
   });
 });
