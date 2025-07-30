@@ -1,0 +1,614 @@
+{
+	"info": {
+		"_postman_id": "62dc19f5-19da-446a-8c9a-32ab5d4e3a67",
+		"name": "CyberXplore API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24106690"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Health Check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "cross-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "79"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Jul 2025 20:53:21 GMT"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1753909483"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"80-D5sbKqXNDn/YZc+UONKCAbiCBME\""
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"CyberXplore Malware Scanner API is running\",\n    \"timestamp\": \"2025-07-30T20:53:21.443Z\",\n    \"version\": \"1.0.0\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Upload File",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/simra/OneDrive/Desktop/photo-1575936123452-b67c3203c357.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"upload"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "cross-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "76"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Jul 2025 20:54:05 GMT"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1753909483"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "384"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"180-ej5I12jyGvk8UCmKm3V/m06dwyw\""
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"File uploaded successfully. Scan in progress...\",\n    \"file\": {\n        \"_id\": \"688a866dca7c79175139624c\",\n        \"filename\": \"1753908845891-a1afae1540d6.jpeg\",\n        \"originalName\": \"photo-1575936123452-b67c3203c357.jpeg\",\n        \"path\": \"uploads\\\\1753908845891-a1afae1540d6.jpeg\",\n        \"size\": 546156,\n        \"mimetype\": \"image/jpeg\",\n        \"status\": \"pending\",\n        \"result\": \"pending\",\n        \"uploadedAt\": \"2025-07-30T20:54:05.899Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"files"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Files",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/files",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"files"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "cross-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "71"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Jul 2025 20:54:19 GMT"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1753909483"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2583"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a17-ulMOuOTfMOVkHXw2c274AoIn4FM\""
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"files\": [\n        {\n            \"_id\": \"688a866dca7c79175139624c\",\n            \"filename\": \"1753908845891-a1afae1540d6.jpeg\",\n            \"originalName\": \"photo-1575936123452-b67c3203c357.jpeg\",\n            \"path\": \"uploads\\\\1753908845891-a1afae1540d6.jpeg\",\n            \"size\": 546156,\n            \"mimetype\": \"image/jpeg\",\n            \"status\": \"scanned\",\n            \"result\": \"clean\",\n            \"uploadedAt\": \"2025-07-30T20:54:05.899Z\",\n            \"createdAt\": \"2025-07-30T20:54:05.901Z\",\n            \"updatedAt\": \"2025-07-30T20:54:10.202Z\",\n            \"__v\": 0,\n            \"scannedAt\": \"2025-07-30T20:54:10.201Z\"\n        },\n        {\n            \"_id\": \"688a827bca7c79175139612e\",\n            \"filename\": \"1753907835799-2ae418669873.webp\",\n            \"originalName\": \"normal.webp\",\n            \"path\": \"uploads\\\\1753907835799-2ae418669873.webp\",\n            \"size\": 23290,\n            \"mimetype\": \"image/webp\",\n            \"status\": \"scanned\",\n            \"result\": \"clean\",\n            \"uploadedAt\": \"2025-07-30T20:37:15.802Z\",\n            \"createdAt\": \"2025-07-30T20:37:15.804Z\",\n            \"updatedAt\": \"2025-07-30T20:37:22.269Z\",\n            \"__v\": 0,\n            \"scannedAt\": \"2025-07-30T20:37:22.269Z\"\n        },\n        {\n            \"_id\": \"688a821dca7c7917513960c0\",\n            \"filename\": \"1753907741399-25407090752f.pdf\",\n            \"originalName\": \"Balance-Sheet-Example.pdf\",\n            \"path\": \"uploads\\\\1753907741399-25407090752f.pdf\",\n            \"size\": 497278,\n            \"mimetype\": \"application/pdf\",\n            \"status\": \"scanned\",\n            \"result\": \"clean\",\n            \"uploadedAt\": \"2025-07-30T20:35:41.409Z\",\n            \"createdAt\": \"2025-07-30T20:35:41.412Z\",\n            \"updatedAt\": \"2025-07-30T20:35:45.043Z\",\n            \"__v\": 0,\n            \"scannedAt\": \"2025-07-30T20:35:45.042Z\"\n        },\n        {\n            \"_id\": \"688a820bca7c7917513960a3\",\n            \"filename\": \"1753907723196-16a9dae54ef2.jpeg\",\n            \"originalName\": \"images.jpeg\",\n            \"path\": \"uploads\\\\1753907723196-16a9dae54ef2.jpeg\",\n            \"size\": 5956,\n            \"mimetype\": \"image/jpeg\",\n            \"status\": \"scanned\",\n            \"result\": \"clean\",\n            \"uploadedAt\": \"2025-07-30T20:35:23.198Z\",\n            \"createdAt\": \"2025-07-30T20:35:23.203Z\",\n            \"updatedAt\": \"2025-07-30T20:35:29.564Z\",\n            \"__v\": 0,\n            \"scannedAt\": \"2025-07-30T20:35:29.563Z\"\n        },\n        {\n            \"_id\": \"688a81ffca7c79175139607f\",\n            \"filename\": \"1753907711299-237f1c640931.jpeg\",\n            \"originalName\": \"photo-1575936123452-b67c3203c357.jpeg\",\n            \"path\": \"uploads\\\\1753907711299-237f1c640931.jpeg\",\n            \"size\": 546156,\n            \"mimetype\": \"image/jpeg\",\n            \"status\": \"scanned\",\n            \"result\": \"clean\",\n            \"uploadedAt\": \"2025-07-30T20:35:11.314Z\",\n            \"createdAt\": \"2025-07-30T20:35:11.330Z\",\n            \"updatedAt\": \"2025-07-30T20:35:16.520Z\",\n            \"__v\": 0,\n            \"scannedAt\": \"2025-07-30T20:35:16.518Z\"\n        },\n        {\n            \"_id\": \"688a8197b97645d46aaa1f13\",\n            \"filename\": \"1753907607686-4461db0a9bfc.jpeg\",\n            \"originalName\": \"photo-1575936123452-b67c3203c357.jpeg\",\n            \"path\": \"uploads\\\\1753907607686-4461db0a9bfc.jpeg\",\n            \"size\": 546156,\n            \"mimetype\": \"image/jpeg\",\n            \"status\": \"scanned\",\n            \"result\": \"clean\",\n            \"uploadedAt\": \"2025-07-30T20:33:27.709Z\",\n            \"createdAt\": \"2025-07-30T20:33:27.736Z\",\n            \"updatedAt\": \"2025-07-30T20:33:31.841Z\",\n            \"__v\": 0,\n            \"scannedAt\": \"2025-07-30T20:33:31.840Z\"\n        }\n    ],\n    \"total\": 6,\n    \"page\": 1,\n    \"limit\": 10,\n    \"totalPages\": 1,\n    \"hasNext\": false,\n    \"hasPrev\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Files by Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/files?status=pending",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"files"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "pending"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Files by Status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/files?status=pending",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"files"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "cross-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "68"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Jul 2025 20:54:44 GMT"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1753909483"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"68-jJMhxte0q8fSG1B3zHLgByquXHw\""
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"files\": [],\n    \"total\": 0,\n    \"page\": 1,\n    \"limit\": 10,\n    \"totalPages\": 0,\n    \"hasNext\": false,\n    \"hasPrev\": false\n}"
+				}
+			]
+		}
+	]
+}
